@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block body %}
+<!-- Contact Section Begin -->
+<section class="contact-section spad set-bg" data-setbg="{{url_for('static', filename='img/match/match-bg.jpg')}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="contact-info">
+                    <img class="rounded-circle account-img profile_pic" src="{{ image_file }}">
+                    <h2 style="display: inline-flex;">{{ current_user.username}}</h2>
+                    <div class="ci-address">
+                        <h5>Basic Informations</h5>
+                        <ul>
+                            <li><b>Email:</b> {{ current_user.email }}</li>
+                            <li><b>Joined:</b> {{ current_user.date_created.date() }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+
+{% endblock %}

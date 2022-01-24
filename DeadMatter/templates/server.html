@@ -1,0 +1,83 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block body %}
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad set-bg" data-setbg="{{url_for('static', filename='img/match/match-bg.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                    <div class="ms-content">
+                        <div class="mc-table">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img class="server_pic rounded-circle"
+                                                src="{{url_for('static', filename='img/Server_pics/' + server.image_file)}}">
+                                        </td>
+                                        <td class="mt-content">
+                                            <div class="mc-op down">
+                                                <h4 class="warp">{{server.name}}</h4>
+                                                <img src="{{url_for('static', filename='img/flags/' + server.country.image_file)}}">
+                                            </div>
+                                            <div class="mc-op">
+                                                <h5> {{ server.server_IP }}{% if server.port %}:{{server.port}} {%endif%}</h5>
+                                            </div>
+                                            {% if server.website %}
+                                            <a href={{ server.website }}><img class="resize"
+                                                    src="{{url_for('static', filename='img/servers/clipart2847989.png')}}"></a>
+                                            {%endif%}
+                                            {% if server.discord %}
+                                            <a style="margin-left: 10px;" href={{ server.discord }}><img class="resize"
+                                                    src="{{url_for('static', filename='img/servers/internet.png')}}"></a>
+                                            {%endif%}
+                                        </td>
+                                        <td class="right-team">
+                                            <h4>Description:</h4>
+                                            <p class="warp">{{ server.description }}</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        {% if server.author == current_user or current_user.rank_id == 2 %}
+                        <a class="btn btn-danger m-1" href="{{ url_for('server_app.server_update', server_id=server.id) }}"
+                            style="float: right; margin-top: 0;">Edit</a>
+                        <button type="button" class="btn btn-danger m-1" data-toggle="modal" data-target="#deleteModal" style="float: right; margin-top: 0;">Delete</button>
+                        {% else %}
+                            <a href="{{url_for('reports.report_server', server_name=server.name)}}" style="float: right; margin-right: 10px;"
+                                class="text-danger">Report</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModal" style="color:black;">Delete Post?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form method="POST" action="{{ url_for('server_app.delete_post', server_id=server.id) }}">
+                        <input formmethod="POST" type="submit" class="btn btn-primary btn-danger" value="Delete">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section End -->
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block body %}
+
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad set-bg" data-setbg="{{url_for('static', filename='img/match/match-bg.jpg')}}">
+        <div style="max-width: 60%;" class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="contact-form">
+                        <h2 style="text-align: center;">Submit your server</h2>
+                        <form method="POST" enctype="multipart/form-data">
+                            {{ form.hidden_tag() }}
+                            <div class="group-in">
+                                {{ form.problem.label }}
+                                {{ form.problem (style="background-color:white;", class="form-control btn btn-default dropdown-toggle") }}
+                                <small style="float: right;" class="text-danger">*Required</small>
+                            </div>
+                            <div class="group-in">
+                                {% if not current_user.is_authenticated %}
+                                    {{form.email.label}}
+                                    {% if form.email.errors %}
+                                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.email.errors %}
+                                        <span>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.email }}
+                                    {%endif%}
+                                    <small style="float: right;" class="text-danger">*Required</small>
+                                {%endif%}
+                            </div>
+                            <div class="group-in">
+                                {{ form.description.label }}
+                                {% if form.description.errors %}
+                                    {{ form.description(class="form-control form-control-lg is-invalid",style="display: block;
+                                    margin: 0;") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.description.errors %}
+                                            <span>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.description(style="display: block; margin: 0;") }}
+                                {%endif%}
+                            <small style="float: right;" class="text-danger">*Required</small>
+                            </div>
+                        {{ form.submit}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+{% endblock %}

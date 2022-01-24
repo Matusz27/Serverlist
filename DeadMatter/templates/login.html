@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block body %}
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad set-bg" data-setbg="{{url_for('static', filename='img/match/match-bg.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h2>Login</h2>
+                        <form method="POST">
+                            {{ form.hidden_tag() }}
+                            <div class="group-in">
+                                {% if form.email.errors %}
+                                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.email.errors %}
+                                        <span>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.email }}
+                                {%endif%}
+                            </div>
+                            <div class="group-in">
+                                {% if form.password.errors %}
+                                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.password.errors %}
+                                        <span>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.password }}
+                                {%endif%}
+                                <a href="{{ url_for('users.reset_request') }}" style="position: relative; z-index: 10; float: right;"><small>Forgotten Password?</a></small>
+                                <div class="form-check">
+                                    {{form.remember(class="form-check-input")}}
+                                    <small>Remember me</small>
+                                </div>
+                            </div>
+                            {{ form.submit}}
+                        </form>
+                        <small>Not yet registered?
+                            <a class="m-2" href="{{url_for('users.register')}}">Sign up</a>
+                        </small>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h2>Login</h2>
+                        <p>Login here to edit your server info and manage billing information</p>
+                        <div class="ci-address">
+                            <h5>Our benefits</h5>
+                            <ul>
+                                <li>&#10003; Players vote to get your server on top of the list</li>
+                                <li>&#10003; Bump your server to the top of our list by purchasing a sponsored server</li>
+                                <li>&#10003; the first and most popular dead matter server list</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+{% endblock %}

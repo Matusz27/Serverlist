@@ -1,0 +1,90 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block body %}
+<!-- Hero Section Begin -->
+<section class="hero-section set-bg" data-setbg="{{url_for('static', filename='img/hero/hero-1.jpg')}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hs-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="hs-text">
+                                    <h2>Welcome to DeadMatter serverlist</h2>
+                                    <h4>See all DeadMatter servers below</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Trending News Section Begin -->
+<div class="trending-news-section">
+    <div class="container">
+        <div class="news-slider owl-carousel">
+            <div class="nt-item">This is the place for you to find your next DeadMatter Server</div>
+            <div class="nt-item">Look down below for highly rated servers or for a server that matches your needs</div>
+        </div>
+    </div>
+</div>
+<!-- Trending News Section End -->
+
+<!-- Match Section Begin -->
+<section class="match-section set-bg" data-setbg="{{url_for('static', filename='img/match/match-bg.jpg')}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg">
+                <div class="ms-content">
+                    <h4>Servers</h4>
+                    <div class="mc-table">
+                        {% for server in servers %}
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="{{ url_for('server_app.server_page', server_id=server.id) }}"> <img class="server_pic rounded-circle"  src="{{url_for('static', filename='img/Server_pics/' + server.image_file)}}"></a>
+                                        </td>
+                                        <td class="mt-content">
+                                            <div class="mc-op down">
+                                                <h4 class="warp">{{server.name}}</h4>
+                                            <img src="{{url_for('static', filename='img/flags/' + server.country.image_file)}}">
+                                            </div>
+                                            <div class="mc-op"><h5> {{ server.server_IP }}{% if server.port %}:{{server.port}} {%endif%}</h5></div>
+                                            {% if server.website %}
+                                                <a href={{ server.website }}><img class="resize" src="{{url_for('static', filename='img/servers/internet.png')}}" ></a>
+                                            {%endif%}
+                                            {% if server.discord %}
+                                                <a style="margin-left: 10px;" href={{ server.discord }}><img class="resize" src="{{url_for('static', filename='img/servers/clipart2847989.png')}}"></a>
+                                            {%endif%}
+                                            </td>
+                                        <td class="right-team">
+                                           <a href="{{'/account/' + server.author.username}}"><p>{{ server.author.username }}</p></a>
+                                            <h4>Description:</h4>
+                                            <p class="warp">{{ server.description }}</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                           <a href="{{url_for('reports.report_server', server_name=server.name)}}" style="float: right; margin-right: 10px;" class="text-danger">Report</a>
+                        <br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Match Section End -->
+{% endblock %}

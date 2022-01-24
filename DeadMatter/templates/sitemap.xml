@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.deadmatterservers.xyz/</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/login?next=%2Fserver%2Fnew</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/register</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/login</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/account/sietsemuller</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/server/EXAMPLE%20SERVER%20/report</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/server/Test%20server</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/account/Laurens</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/server/Test%20server/report</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/report</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/passwordreset</loc>
+  <lastmod>2020-08-18T14:53:53+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/static/Files/Terms_of_use_deadmatterservers.pdf</loc>
+  <lastmod>2020-08-17T18:25:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.deadmatterservers.xyz/static/Files/Deadmatter_privacy_Policy.pdf</loc>
+  <lastmod>2020-08-17T18:25:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

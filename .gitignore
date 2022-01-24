@@ -1,0 +1,5 @@
+/.vscode
+/serverlist.code-workspace
+/venv
+/__pycache__
+site.db

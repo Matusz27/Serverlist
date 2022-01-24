@@ -1,0 +1,142 @@
+{% extends 'base.html'%}
+
+{% block head %}
+
+
+{% endblock %}
+
+
+{% block body %}
+
+<!-- Contact Section Begin -->
+<section class="contact-section spad set-bg" data-setbg="{{url_for('static', filename='img/match/match-bg.jpg')}}">
+    <div style="max-width: 60%;" class="container">
+        <div class="row">
+            <div class="col">
+                <div class="contact-form">
+                    <h2 style="text-align: center;">Edit your server</h2>
+                    <form method="POST" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        <div class="group-in">
+                            {{ form.name.label }}
+                            {% if form.name.errors %}
+                            {{ form.name(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.name }}
+                            <small>Max 35 characters long</small>
+                            {%endif%}
+                            <small style="float: right;" class="text-danger">*Required</small>
+                        </div>
+                        <div class="group-in">
+                                {{ form.server_IP.label }}
+                                {% if form.server_IP.errors %}
+                                    {{ form.server_IP(class="IP form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.server_IP.errors %}
+                                            <span>{{error}}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.server_IP(class="IP") }}
+                                {%endif%}
+                                <h5 style="
+                                    display: inline;
+                                ">:</h5>
+                            {% if form.port.errors %}
+                            {{ form.port(class="port form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.port.errors %}
+                                <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.port(class="port") }}
+                            {%endif%}
+                            <small style="float: right;" class="text-danger">*IP required, port isn't required</small>
+                            </div>
+                        <div class="group-in">
+                            {{ form.description.label }}
+                            {% if form.description.errors %}
+                            {{ form.description(class="form-control form-control-lg is-invalid",style="display: block;
+                                    margin: 0;") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.description.errors %}
+                                <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.description(style="display: block; margin: 0;") }}
+                            <small>Max 200 characters long</small>
+                            {%endif%}
+                            <small style="float: right;" class="text-danger">*Required</small>
+                        </div>
+                        <div class="group-in">
+                            {{ form.discord.label }}
+                            {% if form.discord.errors %}
+                            {{ form.discord(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.discord.errors %}
+                                <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.discord }}
+                            {%endif%}
+                        </div>
+                        <div class="group-in">
+                            {{ form.website.label }}
+                            {% if form.website.errors %}
+                            {{ form.website(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.website.errors %}
+                                <span>{{error}}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.website(style="display: block; margin: 0;") }}
+                            {%endif%}
+                        </div>
+                        <div class="group-in">
+                            {{ form.country.label }}
+                            {{ form.country (style="background-color:white;", class="form-control btn btn-default dropdown-toggle") }}
+                        </div>
+                        <div class="group-in">
+                            {{ form.picture.label }}
+                            {% if form.picture.errors %}
+                            <div class="input-group">
+                                <label id="browsebutton" class="input-group-text" for="my-file-selector"
+                                    style="background-color:white">
+                                    {{ form.picture(class="form-control form-control-lg is-invalid", id="my-file-selector", style="display:none;") }}
+                                    Browse...
+                                </label>
+                                <input style="cursor: default;" type="text" class="form-control" readonly="">
+                            </div>
+                            {% for error in form.picture.errors %}
+                            <span class="text-danger">{{error}}</span></br>
+                            {% endfor %}
+                            {% else %}
+                            <div class="input-group">
+                                <label id="browsebutton" class="input-group-text" for="my-file-selector"
+                                    style="background-color:white">
+                                    {{ form.picture(id="my-file-selector", style="display:none;") }}
+                                    Browse...
+                                </label>
+                                <input style="cursor: default;" type="text" class="form-control" readonly="">
+                            </div>
+                            <small style="float: right;">Recommended square 500x500px or more</small>
+                            {%endif%}
+                        </div>
+                        {{ form.submit}}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+{% endblock %}
